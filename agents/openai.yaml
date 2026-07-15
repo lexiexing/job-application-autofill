@@ -1,0 +1,4 @@
+interface:
+  display_name: "网申表单填写"
+  short_description: "自动整理求职材料并安全填写网申表单"
+  default_prompt: "使用 $job-application-autofill 初始化我的网申资料，请提示我上传材料并自动整理，不需要我修改代码。"

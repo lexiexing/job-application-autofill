@@ -1,8 +1,34 @@
 # Job Application Autofill
 
-一个用于自动整理求职材料并辅助填写网申表单的 Codex Skill。
+一个同时提供 **Codex Skill** 和 **Chrome 扩展** 的网申辅助工具。
 
-首次使用时，它会创建私有材料目录，引导用户上传简历、成绩单、证书和作品集，随后从材料中提取已核实的信息并生成可复用的候选人档案。填写网申时，Skill 会将档案中的事实映射到页面字段，并在最终提交前停止，交由用户检查确认。
+用户可以直接和 Codex 对话，让 Skill 整理材料并协助填写网申；也可以下载 Chrome 扩展，在浏览器中独立使用。
+
+## 选择使用方式
+
+| 方式 | 适合人群 | 如何使用 |
+| --- | --- | --- |
+| Codex Skill | 已使用 Codex，希望通过对话整理材料和填写网申 | 安装本仓库后，直接调用 `$job-application-autofill` |
+| Chrome 扩展 | 希望在 Chrome 中点击按钮填写，不依赖 Codex 对话 | 下载扩展 ZIP，解压后加载到 Chrome |
+
+两种方式可以单独使用，也可以同时使用。
+
+### 仅使用 Codex Skill
+
+安装 Skill 后直接在 Codex 中对话即可。首次使用时，Codex 会引导上传简历、成绩单、证书和作品集，自动生成私有档案，不需要修改代码。
+
+### 使用 Chrome 扩展
+
+[下载 Chrome 扩展 ZIP](./assets/chrome-extension/job-autofill-extension-public.zip)，然后：
+
+1. 解压 ZIP。
+2. 在 Chrome 地址栏打开 `chrome://extensions`。
+3. 打开右上角「开发者模式」。
+4. 点击「加载已解压的扩展程序」。
+5. 选择解压后的 `job-autofill-extension-public` 文件夹。
+6. 在自动打开的设置页填写个人资料并保存。
+
+Chrome 扩展不包含任何真实候选人的资料。简历、成绩单和证书由用户在招聘网站中手动选择上传。
 
 ## 主要功能
 
@@ -15,7 +41,7 @@
 - 缺少事实依据时留空并集中询问，不编造个人信息
 - 默认不点击提交、暂存、保存或“预览并提交”按钮
 
-## 安装
+## 方式一：安装 Codex Skill
 
 将仓库克隆到 Codex 的 Skills 目录：
 
@@ -95,6 +121,10 @@ job-application-autofill/
 │   └── profile-template.md          # 私有候选人档案模板
 ├── scripts/
 │   └── init_private_workspace.py    # 私有材料目录初始化脚本
+├── assets/
+│   └── chrome-extension/
+│       └── job-autofill-extension-public.zip
+│                                      # 可选的 Chrome 扩展安装包
 └── .gitignore                       # 排除私人档案和材料
 ```
 
@@ -102,9 +132,9 @@ job-application-autofill/
 
 ## 运行要求
 
-- Codex
-- Python 3.9 或更高版本
-- 需要操作登录后的招聘网站时，应允许 Codex 使用相应浏览器会话
+- 使用 Skill：Codex、Python 3.9 或更高版本
+- 使用 Chrome 扩展：支持 Manifest V3 的 Chrome 浏览器
+- 需要让 Codex 操作登录后的招聘网站时，应允许 Codex 使用相应浏览器会话
 
 ## 更新
 
